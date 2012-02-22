@@ -1,27 +1,24 @@
-;; locale coding
-(setq locale-coding-system'utf-8)
-(prefer-coding-system'utf-8)
-(set-keyboard-coding-system'utf-8)
-(set-terminal-coding-system'utf-8)
-(set-selection-coding-system'utf-8)
-(set-clipboard-coding-system 'ctext)
-(set-buffer-file-coding-system 'utf-8)
-(setq tab-width 4 indent-tabs-mode nil)
+;; locale coding 
+(setq locale-coding-system'utf-8) 
+(prefer-coding-system'utf-8) 
+(set-keyboard-coding-system'utf-8) 
+(set-terminal-coding-system'utf-8) 
+(set-selection-coding-system'utf-8) 
+(set-clipboard-coding-system 'ctext) 
+(set-buffer-file-coding-system 'utf-8) 
+
+(global-set-key  [C-left] 'windmove-left)
+(global-set-key  [C-right] 'windmove-right)
+(global-set-key  [C-up] 'windmove-up)
+(global-set-key  [C-down] 'windmove-down)
 
 ;;c++ related
 (add-hook 'c++-mode-hook
       '(lambda ( )
          (c-toggle-hungry-state)))
+
 (setq c-default-style "linux"
           c-basic-offset 4)
-;(add-hook 'c++-mode-hook
-;      '(lambda ( )
-;         (flyspell-prog-mode)))
-
-;(add-hook 'c++-mode-hook
-;      '(lambda ( )
-;         (c-set-style "vespa")))
-
 
 (setq auto-mode-alist
      (cons '("\\.h\\'" . c++-mode) auto-mode-alist))
@@ -38,6 +35,10 @@
 (add-hook 'c-mode-hook
       '(lambda ( )
          (c-toggle-hungry-state)))
+;(add-hook 'c-mode-hook
+;      '(lambda ( )
+;         (flyspell-prog-mode)))
+
 
 ;;customized key bindings following
 
@@ -79,6 +80,8 @@
 (global-set-key [f8] 'open-eshell-other-buffer)
 (global-set-key [C-f8] 'eshell)
 
+(menu-bar-mode)
+
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook
           '(lambda ()
@@ -91,11 +94,9 @@
 (setq truncate-partial-width-windows nil)
 (setq make-backup-files nil)
 
-;; set yasnippet
+;set yasnippet
 (add-to-list 'load-path
              "~/.emacs.d/plugins")
-
-;; set snippet
 (require 'yasnippet-bundle)
 
 (custom-set-variables
@@ -113,71 +114,62 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; set color theme
-(add-to-list 'load-path
-	     "~/.emacs.d/plugins/color-theme")
+;set color
+(add-to-list 'load-path "~/.emacs.d/plugins/color-theme/")
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-tangotango)
 
-;; set select file or buffer
-;; do not use (ido-mode 1) which has a recurise load bug
+;set select file or buffer
 (require 'ido)
-(add-hook 'term-setup-hook 'ido-mode)
+(ido-mode t)
 
-;; set tool-bar
-(tool-bar-mode 0)
-
-;; set menu-bar
-(menu-bar-mode 0)
-
-;; set max windows when boot
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-
-;set autocomplete
-;(require 'auto-complete)
-;(global-auto-complete-mode t)
-
-(add-to-list 'load-path "~/.emacs.d")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-
-;; set key binding
-(global-set-key [C-f2] 'split-window-horizontally)
-(global-set-key [C-f3] 'delete-other-windows)
-(global-set-key [C-f4] 'delete-window)
-(global-set-key [C-f6] 'split-window-vertically)
-(global-set-key  [C-left] 'windmove-left)
-(global-set-key  [C-right] 'windmove-right)
-
+;set package
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-;; anything keyboard
-(global-set-key [C-return] 'anything)
-
-;; diable scroll-bar
-(scroll-bar-mode 0)
-
-;; clojure-mode
+;clojure
+(add-to-list 'load-path "~/.emacs.d/")
 (require 'clojure-mode)
 
-;; (require 'paredit) if you didn't install via package.el
+;paredit
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
 
-;; font size
-(set-face-attribute 'default nil :height 120)
+;anything
+(require 'anything)
+(global-set-key [C-return] 'anything)
 
-;; clipborad shared
-(setq x-select-enable-clipboard t)
+;; disable sidebar
+(scroll-bar-mode 0)
 
-;; forward-whitespace
-(require 'thingatpt)
-(global-set-key (kbd "C-,") 'forward-whitespace)
+;; max-frame
+(add-hook 'window-setup-hook 'maximize-frame t)
+
+;; autocomplete
+(add-to-list 'load-path "/Users/tangxm/.emacs.d/plugins")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/Users/tangxm/.emacs.d/plugins/ac-dict")
+(ac-config-default)
+
+; example of setting env var named “path”
+; by prepending new paths to existing paths
+(setenv "PATH"
+  (concat
+   "/usr/local/bin" ":"
+   (getenv "PATH") ; inherited from OS
+  )
+)
+
+;emacs c/c++ code style
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+;set dirtory in status
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
