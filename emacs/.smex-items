@@ -1,0 +1,25 @@
+
+;; ----- smex-history -----
+(
+ esk-sudo-edit
+ idle-highlight-mode
+ hl-line-mode
+ hi-lock-mode
+ eshell
+ package-list-packages
+ eval-defun
+)
+
+;; ----- smex-data -----
+(
+ (eval-defun . 1)
+ (eval-buffer . 1)
+ (package-list-packages . 2)
+ (turn-on-eldoc-mode . 1)
+ (anything . 8)
+ (eshell . 1)
+ (hl-line-mode . 2)
+ (hi-lock-mode . 2)
+ (idle-highlight-mode . 1)
+ (esk-sudo-edit . 1)
+)

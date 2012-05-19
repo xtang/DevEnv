@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (anything-other-buffer anything-at-point anything)
-;;;;;;  "anything" "anything.el" (20201 34761))
+;;;;;;  "anything" "anything.el" (20407 2549))
 ;;; Generated autoloads from anything.el
 
 (autoload 'anything "anything" "\
@@ -80,7 +80,7 @@ Simplified interface of `anything' with other `anything-buffer'
 
 ;;;***
 
-;;;### (autoloads nil nil ("anything-pkg.el") (20201 34762 76777))
+;;;### (autoloads nil nil ("anything-pkg.el") (20407 2549 423097))
 
 ;;;***
 
