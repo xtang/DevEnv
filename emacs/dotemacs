@@ -35,7 +35,6 @@
 ;; normal config
 (setq make-backup-files nil)
 
-
 ; prog-mode
 (add-hook 'c++-mode-hook 'esk-prog-mode-hook)
 (add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
@@ -47,3 +46,9 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
+;; keybind
+(add-hook 'eshell-mode-hook
+          (lambda ()
+            (local-unset-key (kbd "M-RET"))))
+
+(global-set-key (kbd "M-n") 'mark-sexp)
