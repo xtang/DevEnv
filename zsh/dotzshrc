@@ -31,23 +31,5 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 bindkey -e
 
-export M3_HOME=/usr/local/apache-maven-3.0.3
-export PATH=$PATH:${M3_HOME}/bin
-
-#java setting
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-export PATH=$PATH:$JAVA_HOME/bin
-
-#hadoop setting
-export HADOOP_HOME=/home/hadoop/hadoop/
-
-#eclipse setring
-export PATH=$PATH:/opt/eclipse/
-
-#alias
-alias tw='ssh -qTfnN -D 7070 terrortang@dogj3.usessh001.com'
-
-alias push='git push origin HEAD:refs/for/master'
-
-alias ws='cd ~/workspace'
+source ~/.zsh_alias
+source /Users/tangxiaomin/Workspace/phabricator/arcanist/resources/shell/bash-completion
