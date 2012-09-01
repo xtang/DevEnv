@@ -3,10 +3,8 @@ alias gfw='ssh -qTfnN -D 7070 proxyuser@gfwproxy.mei.fm'
 
 # git alias
 alias ga='git add'
-alias gau='git add -u'
-alias gaa='git add -A'
 alias gp='git push'
-alias gl='git log'
+alias gl='git lg'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
