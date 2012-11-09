@@ -1,14 +1,14 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (add-to-list 'load-path "~/.emacs.d/elpa/color-theme/")
+(add-to-list 'load-path "~/.emacs.d/elpa/mooze-js2-mode")
 
 ; package
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
 
 ; clojure
-(require 'clojure-mode)
+; (require 'clojure-mode)
 
 ; color
 (require 'color-theme)
@@ -16,8 +16,8 @@
 (color-theme-tangotango)
 
 ; ac-complete
-(require 'auto-complete-config)
-(ac-config-default)
+; (require 'auto-complete-config)
+; (ac-config-default)
 
 ;; clip-board share
 (setq x-select-enable-clipboard)
@@ -35,15 +35,31 @@
 (setq make-backup-files nil)
 
 ; prog-mode
-(add-hook 'c++-mode-hook 'esk-prog-mode-hook)
-(add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
-(add-hook 'java-mode-hook 'esk-prog-mode-hook)
-(add-hook 'java-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+; (add-hook 'c++-mode-hook 'esk-prog-mode-hook)
+; (add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+; (add-hook 'java-mode-hook 'esk-prog-mode-hook)
+; (add-hook 'java-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 
 ;; google-c-style
 (require 'google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+;; multi-term
+(defun toggle-dedicated-term ()
+  (interactive)
+  (if (multi-term-dedicated-exist-p)
+      (multi-term-dedicated-close)
+    (progn 
+      (multi-term-dedicated-open)
+      (multi-term-dedicated-select))))
+
+(require 'multi-term)
+(setq multi-term-program "/bin/zsh")
+(setq multi-term-dedicated-window-height 20)
+(setq multi-term-dedicated-max-window-height 30)
+(global-set-key (kbd "C-x C-m") 'toggle-dedicated-term)
+(global-set-key (kbd "C-x m") 'toggle-dedicated-term)
 
 ;; keybind
 (add-hook 'eshell-mode-hook
@@ -51,3 +67,35 @@
             (local-unset-key (kbd "M-RET"))))
 
 (global-set-key (kbd "M-n") 'mark-sexp)
+(global-set-key (kbd "C-x C-j") 'imenu)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; js 
+;; (autoload 'js2-mode "js2-mode" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (setq js2-highlight-level 3)
+;; (setq js2-basic-offset 2)
+
+(setq js-indent-level 2)
+
+;; (eval-after-load "clojure-mode"
+;;  '(progn
+;;     (require 'slime)
+;;     (require 'clojure-mode)
+;;     (define-key clojure-mode-map (kbd "M-/")  (quote slime-complete-symbol))
+;;     (define-key clojure-mode-map (kbd "C-c s")  (quote slime-selector))
+;;     (unless (slime-connected-p)
+;;       (save-excursion (clojure-jack-in)))))
+
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files."
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (and (buffer-file-name)
+                 (not (buffer-modified-p)))
+        (if (file-exists-p (buffer-file-name))
+            (revert-buffer t t t)))))
+  (message "Refresh open files."))
+
+
