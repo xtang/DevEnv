@@ -60,6 +60,7 @@
 (setq multi-term-dedicated-max-window-height 30)
 (global-set-key (kbd "C-x C-m") 'toggle-dedicated-term)
 (global-set-key (kbd "C-x m") 'toggle-dedicated-term)
+;; should execute tic -o ~/.terminfo /your_emacs_home/etc/e/eterm-color.ti
 (setq system-uses-terminfo nil)
 
 ;; keybind
