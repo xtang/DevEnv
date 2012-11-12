@@ -60,6 +60,7 @@
 (setq multi-term-dedicated-max-window-height 30)
 (global-set-key (kbd "C-x C-m") 'toggle-dedicated-term)
 (global-set-key (kbd "C-x m") 'toggle-dedicated-term)
+(setq system-uses-terminfo nil)
 
 ;; keybind
 (add-hook 'eshell-mode-hook
