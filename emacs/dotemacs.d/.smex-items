@@ -1,0 +1,62 @@
+
+;; ----- smex-history -----
+(
+ paredit-mode
+ list-packages
+ byte-compile-file
+ count-words
+ esk-pairing-bot
+ esk-insert-date
+ replace-string
+)
+
+;; ----- smex-data -----
+(
+ (java-mode . 3)
+ (javascript-mode . 3)
+ (js-mode . 8)
+ (package-install . 2)
+ (eval-buffer . 35)
+ (js2-indent-line . 2)
+ (package-list-packages . 14)
+ (js2-mode . 5)
+ (recover-file . 1)
+ (replace-string . 45)
+ (imenu . 9)
+ (esk-insert-date . 2)
+ (hl-line-mode . 4)
+ (load-file . 3)
+ (paredit-mode . 7)
+ (html-mode . 1)
+ (ruby-mode . 6)
+ (slime . 7)
+ (scroll-up . 1)
+ (slime-abort-connection . 1)
+ (nxml-mode . 40)
+ (slime-connect . 1)
+ (clojure-jack-in . 45)
+ (getenv . 1)
+ (css-mode . 3)
+ (describe-key-briefly . 1)
+ (python-send-defun . 1)
+ (python-send-buffer . 1)
+ (count-matches . 18)
+ (linum-mode . 11)
+ (slime-eval-last-expression . 2)
+ (revert-buffer . 13)
+ (revert-all-buffers . 13)
+ (magit-status . 2)
+ (line-number-mode . 2)
+ (global-linum-mode . 2)
+ (auto-complete-mode . 1)
+ (toggle-dedicated-term . 1)
+ (term-mode . 2)
+ (ido-mode . 2)
+ (byte-compile-file . 3)
+ (lisp-mode . 1)
+ (emacs-lisp-mode . 1)
+ (esk-suck-it . 1)
+ (esk-pairing-bot . 1)
+ (list-packages . 4)
+ (count-words . 1)
+)
