@@ -33,6 +33,10 @@
 (set-clipboard-coding-system 'ctext)
 (set-buffer-file-coding-system 'utf-8)
 
+;; set linum vim style 
+; (fringe-mode 0)
+(setq linum-format " %d ")
+
 ;; backup
 (setq make-backup-files nil)
 
@@ -41,11 +45,17 @@
 (add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 (add-hook 'java-mode-hook 'esk-prog-mode-hook)
 (add-hook 'java-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+(add-hook 'java-mode-hook '(lambda () (setq c-basic-offset 4)))
+(add-hook 'go-mode-hook '(lambda () (progn 
+                                 (esk-prog-mode-hook)
+                                 (google-make-newline-indent)
+                                 (auto-complete-mode))))
+;; (add-hook 'java-mode-hook '(lambda () (linum-mode)))
 
 ;; google-c-style
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-(add-hook 'emacs-lisp-mode-hook '(lambda () (paredit-mode)))
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
 ;; multi-term
 (defun toggle-dedicated-term ()
@@ -63,14 +73,16 @@
 (global-set-key (kbd "C-x m") 'toggle-dedicated-term)
 (setq system-uses-terminfo nil)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; keybind
 (add-hook 'eshell-mode-hook
           (lambda ()
             (local-unset-key (kbd "M-RET"))))
 
 (global-set-key (kbd "C-x C-n") (lambda () (interactive) (other-window 1)))
-
 (global-set-key (kbd "M-n") 'mark-sexp)
+(global-set-key (kbd "M-RET") 'anything)
 
 ;; js 
 (autoload 'js2-mode "js2-mode" nil t)
@@ -98,3 +110,14 @@
         (if (file-exists-p (buffer-file-name))
             (revert-buffer t t t)))))
   (message "Refresh open files."))
+
+;; google translate
+
+(require 'google-translate)
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "zh-CN")
+(global-set-key (kbd "C-c g") 'google-translate-at-point)
+
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
