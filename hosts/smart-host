@@ -1,0 +1,379 @@
+#############################################################################
+#                                                                           #
+# IF YOU MAKE ANY CHANGES TO THIS FILE YOU HAVE TO RESTART THE ACRYLIC DNS  #
+# PROXY SERVICE IN ORDER TO SEE THEIR EFFECTS.                              #
+#                                                                           #
+# This is the AcrylicHosts.txt file.                                        #
+#                                                                           #
+# It contains predefined mappings between names and addresses exactly the   #
+# same way the native HOSTS file does.                                      #
+#                                                                           #
+# The format is: IPADDRESS HOSTNAME1 [HOSTNAME2] [HOSTNAME3] ...            #
+#                                                                           #
+# Where IPADDRESS is in quad-dotted notation and HOSTNAMES are strings.     #
+#                                                                           #
+# The separator between IPADDRESS and HOSTNAMES can be any number of spaces #
+# or tabs or both. If the HOSTNAMES contain the special characters '*' and  #
+# '?' a (slow) "dir" like pattern matching algorithm is used instead of a   #
+# (fast) binary search within the list of host names:                       #
+#                                                                           #
+# 127.0.0.1 ad.* ads.*                                                      #
+#                                                                           #
+# If a HOSTNAME starts with the '/' character instead it is treated like a  #
+# regular expression (also very slow compared to a binary search):          #
+#                                                                           #
+# 127.0.0.1 /^ads?\..*$                                                     #
+#                                                                           #
+# Note: More info about the regular expression engine and its syntax can be #
+# found at: http://regexpstudio.com                                         #
+#                                                                           #
+# It is also possible to specify exceptions when regular expressions or     #
+# pattern based matching is used. If for example we would like to filter    #
+# out all ads.* like domains except for the ads.test1 and the ads.test2 we  #
+# should write:                                                             #
+#                                                                           #
+# 127.0.0.1 ads.* -ads.test1 -ads.test2                                     #
+#                                                                           #
+# Note: A line starting with the '#' character (and everything after it if  #
+# it's found within a line) is considered a comment and therefore ignored.  #
+#                                                                           #
+#############################################################################
+
+#UPDATE:12-07-03 20:47
+
+127.0.0.1 localhost
+
+#SmartHosts START
+
+#Google Services START
+203.208.47.1 *.google.com *.appspot.com *.blogspot.com *.googleapis.com *.googlecode.com *.google.cn *.gstatic.cn *.google.com.hk *.gmail.com
+203.208.45.206 *.youtube.com *.ytimg.com
+#Google Services END
+
+
+
+#Apple Services START
+203.78.36.40 adcdownload.apple.com
+203.78.36.40 deimos3.apple.com
+203.78.36.40 appldnld.apple.com
+203.78.36.40 swcdn.apple.com
+#Apple Services END
+
+#Twitter START
+64.213.102.51 a0.twimg.com
+120.88.53.33 a1.twimg.com
+208.87.33.151 api.mobilepicture.com
+#199.59.148.242 api.twitter.com
+#199.59.148.223 assets0.twitter.com
+#199.59.148.223 assets1.twitter.com
+#199.59.148.223 assets2.twitter.com
+#199.59.148.223 assets3.twitter.com
+#199.59.148.138 betastream.twitter.com
+69.58.188.34 bitly.com
+199.59.149.137 dev.twitter.com
+#199.59.148.206 help.twitter.com
+#199.59.148.96 mobile.twitter.com
+#199.59.148.221 mobile-staging2.twitter.com
+#199.59.148.224 mobile-staging4.twitter.com
+#199.59.148.225 mobile-staging5.twitter.com
+#199.16.156.9 oauth.twitter.com
+209.17.70.144 oi40.tinypic.com
+209.17.70.143 oi41.tinypic.com
+209.17.70.143 oi42.tinypic.com
+209.17.70.143 oi43.tinypic.com
+209.17.70.143 oi44.tinypic.com
+209.17.70.143 oi45.tinypic.com
+209.17.70.143 oi46.tinypic.com
+209.17.70.143 oi47.tinypic.com
+209.17.70.143 oi48.tinypic.com
+209.17.70.143 oi49.tinypic.com
+209.17.70.143 oi50.tinypic.com
+209.17.70.144 oi51.tinypic.com
+209.17.70.144 oi52.tinypic.com
+209.17.70.144 oi53.tinypic.com
+209.17.70.144 oi54.tinypic.com
+209.17.70.144 oi55.tinypic.com
+209.17.70.144 oi56.tinypic.com
+#199.59.149.90 pay.twitter.com
+184.28.97.55 p.twimg.com
+#199.59.149.212 pic.twitter.com
+#184.29.36.124 platform.twitter.com
+#219.76.10.138 platform0.twitter.com
+184.106.20.99 posterous.com
+#199.59.148.243 scribe.twitter.com
+#199.59.149.208 scribe.twitter.com
+#199.59.148.223 search.twitter.com
+184.169.75.33 si0.twimg.com
+184.169.75.33 si1.twimg.com
+184.169.75.33 si2.twimg.com
+184.169.75.33 si3.twimg.com
+184.169.75.33 si4.twimg.com
+184.169.75.33 si5.twimg.com
+199.59.148.137 sitestream.twitter.com
+199.59.148.220 sms.twitter.com
+#199.59.148.223 ssl.twitter.com
+#199.59.148.223 static.twitter.com
+#199.59.148.223 status.twitter.com
+#199.59.148.206 support.twitter.com
+#199.59.148.210 t.co
+50.23.200.238 twitpic.com
+#199.59.148.223 upload.twitter.com
+#199.59.148.139 userstream.twitter.com
+174.37.33.172 m1.twitpic.com
+#199.59.148.252 mobile.twitter.com
+50.97.168.42 web1.twitpic.com
+50.23.200.233 web10.twitpic.com
+50.97.168.43 web2.twitpic.com
+50.97.168.43 web3.twitpic.com
+50.97.168.40 web4.twitpic.com
+50.97.168.41 web5.twitpic.com
+50.23.200.231 web6.twitpic.com
+50.23.200.232 web7.twitpic.com
+50.23.200.229 web8.twitpic.com
+50.23.200.228 web9.twitpic.com
+50.23.200.230 www.twitpic.com
+#199.59.149.246 twitter.com
+#199.59.148.242 www.twitter.com
+208.94.0.61 a.yfrog.com
+208.94.0.61 yfrog.com
+208.94.0.61 www.yfrog.com
+#199.59.148.242 xstream.twitter.com
+#Twitter END
+
+#Facebook Start
+69.171.228.25 0.facebook.com
+69.171.239.10 ah8.facebook.com
+69.63.189.53 api-read.facebook.com
+66.220.146.89 api.connect.facebook.com
+69.171.228.44 api.facebook.com
+69.171.229.39 apps.facebook.com
+61.213.189.98 b.static.ak.facebook.com
+61.213.189.120 b.static.ak.fbcdn.net
+66.220.145.57 beta.facebook.com
+66.220.145.63 bigzipfiles.facebook.com
+61.213.189.113 creative.ak.fbcdn.net
+97.65.135.139 external.ak.fbcdn.net
+69.171.224.40 c.facebook.com
+69.171.241.10 chat.facebook.com
+66.220.144.11 chat.thefacebook.com
+66.220.147.11 check4.facebook.com
+69.171.228.40 check6.facebook.com
+184.31.111.139 connect.facebook.net
+69.171.227.19 creativeupload.facebook.com
+69.171.240.99 d.facebook.com
+66.220.156.33 developers.facebook.com
+69.171.224.27 error.facebook.com
+66.220.156.17 facebook.com
+61.213.189.113 fbcdn.net
+80.67.74.111 fbcdn-photos-a.akamaihd.net
+64.213.102.26 fbcdn-profile-a.akamaihd.net
+173.223.232.67 fbcdn-sphotos-a.akamaihd.net
+69.171.239.10 glb.facebook.com
+69.171.239.10 glb1.facebook.com
+66.220.147.16 graph.facebook.com
+69.171.228.27 groups.facebook.com
+69.63.180.186 hphotos-ak-snc1.facebook.com
+69.63.180.186 hphotos-ak-snc3.facebook.com
+69.171.240.10 hphotos-ash4.fbcdn.net
+69.63.183.180 hphotos-pao1.fbcdn.net
+69.63.183.51 hphotos-sjc1.fbcdn.net
+69.63.180.186 hphotos-snc1.fbcdn.net
+69.63.183.3  hphotos-snc3.fbcdn.net
+66.220.151.22 hphotos-snc6.fbcdn.net
+69.171.227.24 hphotos-snc7.fbcdn.net
+66.220.147.55 iphone.facebook.com
+69.63.177.71 irc.tfbnw.net
+66.220.144.43 ldap.thefacebook.com
+66.220.144.49 legacymail.thefacebook.com
+69.171.229.34 m.facebook.com
+69.171.239.10 mx.facebook.com
+69.63.190.12 o.facebook.com
+69.171.227.28 orcart.facebook.com
+69.63.186.26 photos-ak-ash1.facebook.com
+69.63.186.24 photos-ash1.facebook.com
+69.171.229.35 pixel.facebook.com
+69.171.240.14 pixmail.vip.tfbnw.net
+118.214.190.105 profile.ak.facebook.com
+61.213.189.114 profile.ak.fbcdn.net
+66.220.155.43 s-static.facebook.com
+66.220.144.97 sb-dev.thefacebook.com
+66.220.144.98 sb-test.thefacebook.com
+66.220.144.99 sb.thefacebook.com
+61.213.189.113 s-hprofile-sf2p.fbcdn.net
+118.214.114.110 s-static.ak.facebook.com
+69.63.178.68 secure-media.facebook.com
+69.63.178.67 secure-media.fbcdn.net
+69.63.181.57 secure-media-sf2p.facebook.com
+66.220.145.59 secure-profile.facebook.com
+69.171.231.10 secure.facebook.com
+69.171.239.10 spraydns.fbops.com
+69.63.181.15 ssl.facebook.com
+69.171.228.44 ssl.connect.facebook.com
+69.63.189.76 star.facebook.com
+61.213.189.98 static.ak.facebook.com
+97.65.135.163 static.ak.fbcdn.net
+69.171.239.10 static.facebook.com
+66.220.155.43 static.thefacebook.com
+66.220.147.58 touch.facebook.com
+69.171.229.17 upload.facebook.com
+66.220.144.41 vpn.tfbnw.net
+120.29.145.50 vthumb.ak.fbcdn.net
+66.220.151.31 vupload.facebook.com
+66.220.146.45 www.connect.facebook.com
+66.220.156.17 www.facebook.com
+66.220.146.61 www.fbplugin.com
+#Facebook End
+
+#Dropbox START
+199.47.217.179 dropbox.com
+199.47.216.170 www.dropbox.com
+#107.20.207.62 dl.dropbox.com
+#107.20.207.62 dl-web.dropbox.com
+174.36.51.42 forums.dropbox.com
+174.36.51.42 wiki.dropbox.com
+#Dropbox END
+
+#Flickr START
+66.94.233.186 flickr.com
+66.94.233.186 www.flickr.com
+68.142.214.43 static.flickr.com
+66.196.118.49 farm1.static.flickr.com
+69.147.90.159 farm2.static.flickr.com
+76.13.18.78 farm3.static.flickr.com
+67.195.19.66 farm4.static.flickr.com
+76.13.18.79 farm5.static.flickr.com
+98.139.197.254 farm6.static.flickr.com
+98.139.102.46 farm7.static.flickr.com
+98.136.43.76 geo.yahoo.com
+68.142.250.161 l.yimg.com
+96.6.93.227 s.yimg.com
+98.137.88.88 d.yimg.com
+68.142.196.57 c5.ah.yahoo.com
+124.108.120.124 sa.edit.yahoo.com
+76.13.6.132 row.bc.yahoo.com
+66.163.168.247 open.login.yahoo.com
+209.191.92.114 login.yahoo.com
+209.191.92.115 edit.yahoo.com
+209.191.121.31 up.flickr.com
+209.191.105.102 adjax.flickr.yahoo.com
+204.0.5.35 content.yieldmanager.edgesuite.net
+76.13.6.132 us.bc.yahoo.com
+204.0.5.34 us.js2.yimg.com
+
+#data from HostsX
+76.13.18.78 bf1.farm3.static.flickr.com
+76.13.18.78 farm3.static.flickr.com
+76.13.18.78 gq1.farm3.static.flickr.com
+76.13.18.78 sp1.farm3.static.flickr.com
+76.13.18.79 bf1.farm5.static.flickr.com
+76.13.18.79 farm5.static.flickr.com
+76.13.18.79 gq1.farm5.static.flickr.com
+98.139.102.46 bf1.farm7.static.flickr.com
+98.139.102.46 farm7.static.flickr.com
+98.139.102.46 gq1.farm7.static.flickr.com
+98.139.102.46 ne1.farm7.static.flickr.com
+98.139.197.254 bf1.farm6.static.flickr.com
+98.139.197.254 farm6.static.flickr.com
+98.139.197.254 gq1.farm6.static.flickr.com
+#Flickr END
+
+#Adobe Activation START
+0.0.0.0 3dns-2.adobe.com
+0.0.0.0 3dns-3.adobe.com
+0.0.0.0 activate.adobe.com
+0.0.0.0 activate-sea.adobe.com
+0.0.0.0 activate-sjc0.adobe.com
+0.0.0.0 adobe-dns.adobe.com
+0.0.0.0 adobe-dns-2.adobe.com
+0.0.0.0 adobe-dns-3.adobe.com
+0.0.0.0 ereg.adobe.com
+0.0.0.0 hl2rcv.adobe.com
+0.0.0.0 practivate.adobe.com
+0.0.0.0 wip3.adobe.com
+0.0.0.0 activate.wip3.adobe.com
+0.0.0.0 ereg.wip3.adobe.com
+0.0.0.0 wwis-dubc1-vip60.adobe.com
+#Adobe Activation END
+
+#Wikipedia START
+208.80.152.201 *.wikipedia.org *.wikimedia.org *.wikiquote.org *.wikisource.org *.wikiionary.org *.wikinews.org *.wikibooks.org *.wikisource.org *.wiktionary.org *.mediawiki.org *.wikimediafoundation.org
+208.80.152.211 upload.wikimedia.org
+#Wikipedia END
+
+#YouTube START
+203.208.45.206 apiblog.youtube.com
+203.208.45.206 help.youtube.com
+203.208.45.206 i.ytimg.com
+203.208.45.206 i1.ytimg.com
+203.208.45.206 i2.ytimg.com
+203.208.45.206 i3.ytimg.com
+203.208.45.206 i4.ytimg.com
+203.208.45.206 insight.youtube.com
+203.208.45.206 m.youtube.com
+203.208.45.206 s.ytimg.com
+203.208.45.206 ytimg.l.google.com
+#YouTube END
+
+#PlayStation START
+118.214.241.215 nsx.sec.np.dl.playstation.net
+203.69.138.25 nsx.np.dl.playstation.net
+68.142.101.254 nsx.np.grs.dl.playstation.net
+203.69.138.40 nsx-e.np.dl.playstation.net
+203.69.113.238 zeus.dl.playstation.net
+124.40.42.49 mercury.dl.playstation.net
+118.214.241.62 video.dl.playstation.net
+118.214.241.62 comic.dl.playstation.net
+203.69.113.18 apollo.dl.playstation.net
+117.121.249.254 xmb.dl.playstation.net
+68.142.79.69 xmb-e.dl.playstation.net
+117.121.249.253 tmdb.np.dl.playstation.net
+203.105.78.40 a9.hk.np.communication.playstation.net
+198.107.157.152 us.np.stun.playstation.net
+203.105.76.46 hk.np.stun.playstation.net
+203.105.76.46 jp.np.stun.playstation.net
+173.230.216.161 auth.np.ac.playstation.net
+118.214.241.164 *.ww.np.dl.playstation.net
+203.69.138.25 *.update.playstation.net
+198.107.128.157 getprof.es.np.community.playstation.net
+198.107.129.148 getprof.br.np.community.playstation.net
+198.107.129.149 getprof.sa.np.community.playstation.net
+198.107.128.155 getprof.jp.np.community.playstation.net
+198.107.128.165 getprof.gb.np.community.playstation.net
+198.107.131.117 getprof.gr.np.community.playstation.net
+198.107.129.149 getprof.de.np.community.playstation.net
+198.107.131.117 getprof.au.np.community.playstation.net
+198.107.129.149 getprof.ae.np.community.playstation.net
+198.107.129.149 getprof.it.np.community.playstation.net
+198.107.129.149 getprof.pt.np.community.playstation.net
+198.107.131.117 getprof.ie.np.community.playstation.net
+198.107.128.164 getprof.mx.np.community.playstation.net
+198.107.128.157 getprof.no.np.community.playstation.net
+198.107.128.156 searchjid.usa.np.community.playstation.net
+198.107.131.115 searchjid.jpn.np.community.playstation.net
+198.107.131.117 searchjid.eu.np.community.playstation.net
+198.107.159.144 storage01.ww.np.community.playstation.net
+198.107.129.110 trophy.ww.np.community.playstation.net
+198.107.129.110 trophy01.ww.np.community.playstation.net
+198.107.156.156 rating01.ww.np.community.playstation.net
+198.107.128.131 ranking-rec-a01.u0.np.community.playstation.net
+198.107.129.128 ranking-view-a01.u0.np.community.playstation.net
+198.107.156.159 clans-view01.ww.np.community.playstation.net
+216.115.90.32 fbapp.ww.np.community.playstation.net
+203.69.113.18 static-resource.np.community.playstation.net
+64.37.129.11 ns2.sonyonline.net
+58.27.22.83 playstation2.sony.akadns.net
+58.86.40.4 select.ww.home.playstation.net
+58.86.40.4 pkg.ww.home.playstation.net
+217.18.28.60 muis.cprod.homeps3.online.scee.com
+217.18.28.81 secure.cprod.homeps3.online.scee.com
+58.86.40.3 scee-home.playstation.net
+203.69.113.49 post.net.playstation.net
+203.69.113.18 get.net.playstation.net
+184.29.40.34 ena.net.playstation.net
+173.230.216.195 native.np.ac.playstation.net
+72.21.195.206 queue.amazonaws.com
+205.251.242.197 u2livedata.final1.prod.s3.amazonaws.com
+216.137.55.43 u2livedata.final1.prod.naughtydog.com
+#PlayStation END
+
+#SmartHosts END
