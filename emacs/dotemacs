@@ -8,7 +8,10 @@
 (require 'google-c-style)
 (require 'color-theme)
 (require 'multi-term)
+(require 'go-autocomplete)
 (require 'auto-complete-config)
+(require 'handlebars-mode)
+(require 'grep-o-matic)
 
 ;; ac
 (ac-config-default)
@@ -50,9 +53,10 @@
                                  (esk-prog-mode-hook)
                                  (google-make-newline-indent)
                                  (auto-complete-mode))))
-;; (add-hook 'java-mode-hook '(lambda () (linum-mode)))
+(add-hook 'go-mode-hook '(lambda () (setq c-basic-offset 4)))
+(add-hook 'clojure-mode-hook 'paredit-mode)
 
-;; google-c-style
+
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
@@ -91,6 +95,13 @@
 (setq js2-basic-offset 2)
 (setq js-indent-level 2)
 
+(add-hook 'coffee-mode-hook '(lambda () (progn 
+                                     (setq tab-width 2)
+                                     (setq coffee-tab-width 2))))
+
+;; tmpl engine
+; (add-to-list 'auto-mode-alist '("\\.hbs$" . nxml-mode))
+
 ;; (eval-after-load "clojure-mode"
 ;;  '(progn
 ;;     (require 'slime)
@@ -121,3 +132,10 @@
 ;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(hl-line ((t (:inherit highlight :background "gray18")))))
