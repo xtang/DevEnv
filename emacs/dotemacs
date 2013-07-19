@@ -7,7 +7,6 @@
 
 (require 'google-c-style)
 (require 'color-theme)
-(require 'multi-term)
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (require 'handlebars-mode)
@@ -21,11 +20,15 @@
       ac-use-menu-map t)
 
 ;; color theme
-(color-theme-initialize)
-(color-theme-tangotango)
+;(require 'color-theme)
+;(color-theme-initialize)
+;(color-theme-gnome)
+;(color-theme-tangotango)
+(load-theme 'zenburn t)
 
 ;; clip-board share
-(setq x-select-enable-clipboard)
+(setq x-select-enable-clipboard t
+      mouse-drag-copy-region t)
 
 ;; locale coding
 (setq locale-coding-system 'utf-8)
@@ -36,68 +39,62 @@
 (set-clipboard-coding-system 'ctext)
 (set-buffer-file-coding-system 'utf-8)
 
-;; set linum vim style 
+;; set linum vim style
 ; (fringe-mode 0)
 (setq linum-format " %d ")
 
 ;; backup
-(setq make-backup-files nil)
+(setq make-backup-files nil
+      visible-bell nil)
+
+(when (and (eq system-type 'darwin)
+           window-system)
+  ;; macbook air is tiny
+  (set-face-attribute 'default nil :font "Monaco" :height
+                      (if (>= (x-display-pixel-width) 2560) 142 130)))
 
 ; prog-mode
 (add-hook 'c++-mode-hook 'esk-prog-mode-hook)
 (add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
+(add-hook 'c++-mode-hook '(lambda () (setq c-basic-offset 4)))
+(add-hook 'c-mode-hook 'esk-prog-mode-hook)
+(add-hook 'c-mode-hook '(lambda () (setq c-basic-offset 4)))
+(add-hook 'c-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 (add-hook 'java-mode-hook 'esk-prog-mode-hook)
 (add-hook 'java-mode-hook '(lambda () (setq show-trailing-whitespace t)))
 (add-hook 'java-mode-hook '(lambda () (setq c-basic-offset 4)))
-(add-hook 'go-mode-hook '(lambda () (progn 
+(add-hook 'go-mode-hook '(lambda () (progn
                                  (esk-prog-mode-hook)
                                  (google-make-newline-indent)
-                                 (auto-complete-mode))))
-(add-hook 'go-mode-hook '(lambda () (setq c-basic-offset 4)))
+                                 (auto-complete-mode)
+                                 (setq c-basic-offset 4))))
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
 
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+; (add-hook 'c-mode-common-hook 'google-set-c-style)
+; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
-;; multi-term
-(defun toggle-dedicated-term ()
-  (interactive)
-  (if (multi-term-dedicated-exist-p)
-      (multi-term-dedicated-close)
-    (progn 
-      (multi-term-dedicated-open)
-      (multi-term-dedicated-select))))
+;; js
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js2-highlight-level 3
+      js2-basic-offset 2
+      js-indent-level 2)
 
-(setq multi-term-program "/bin/zsh")
-(setq multi-term-dedicated-window-height 20)
-(setq multi-term-dedicated-max-window-height 30)
-(global-set-key (kbd "C-x C-m") 'toggle-dedicated-term)
-(global-set-key (kbd "C-x m") 'toggle-dedicated-term)
-(setq system-uses-terminfo nil)
-
-(global-set-key (kbd "C-x g") 'magit-status)
+;; coffee-script
+(add-hook 'coffee-mode-hook '(lambda () (progn
+                                     (setq tab-width 2)
+                                     (setq coffee-tab-width 2))))
 
 ;; keybind
 (add-hook 'eshell-mode-hook
           (lambda ()
             (local-unset-key (kbd "M-RET"))))
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (global-set-key (kbd "C-x C-n") (lambda () (interactive) (other-window 1)))
 (global-set-key (kbd "M-n") 'mark-sexp)
-(global-set-key (kbd "M-RET") 'anything)
-
-;; js 
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(setq js2-highlight-level 3)
-(setq js2-basic-offset 2)
-(setq js-indent-level 2)
-
-(add-hook 'coffee-mode-hook '(lambda () (progn 
-                                     (setq tab-width 2)
-                                     (setq coffee-tab-width 2))))
 
 ;; tmpl engine
 ; (add-to-list 'auto-mode-alist '("\\.hbs$" . nxml-mode))
@@ -133,9 +130,44 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; ack
+(require 'ack-and-a-half)
+;; Create shorter aliases
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:inherit highlight :background "gray18")))))
+
+(require 'buffer-move)
+(global-set-key (kbd "C-x p")   'buf-move-left)
+(global-set-key (kbd "C-x n")  'buf-move-right)
+
+;; helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(require 'helm-anything)
+(helm-anything-set-keys)
+(global-set-key (kbd "M-RET") 'anything)
+
+;; deal with white spaces
+(require 'whitespace)
+(global-whitespace-mode)
+(setq whitespace-style
+        '(face trailing tabs lines lines-tail empty
+               space-after-tab space-before-tab))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;;; http://batsov.com/articles/2012/12/09/emacs-24-dot-3-introduces-native-osx-full-screen-support/
+(if (functionp 'ns-toggle-fullscreen)
+    ;; emacs 24.3 remove this patch
+    (ns-toggle-fullscreen)
+  (when (eq system-type 'darwin)
+    (set-frame-parameter nil 'fullscreen nil)
+    (set-frame-parameter nil 'fullscreen 'maximized)))
