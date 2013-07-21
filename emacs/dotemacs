@@ -7,8 +7,8 @@
 
 (require 'google-c-style)
 (require 'color-theme)
-(require 'go-autocomplete)
 (require 'auto-complete-config)
+(require 'go-autocomplete)
 (require 'handlebars-mode)
 (require 'grep-o-matic)
 
@@ -127,8 +127,8 @@
 (global-set-key (kbd "C-c g") 'google-translate-at-point)
 
 ;; yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
+;(require 'yasnippet)
+;(yas-global-mode 1)
 
 ;; ack
 (require 'ack-and-a-half)
@@ -152,9 +152,8 @@
 ;; helm
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(require 'helm-anything)
-(helm-anything-set-keys)
-(global-set-key (kbd "M-RET") 'anything)
+(global-set-key (kbd "M-RET") 'helm-for-files)
+(setq helm-split-window-default-side "right")
 
 ;; deal with white spaces
 (require 'whitespace)
@@ -171,3 +170,4 @@
   (when (eq system-type 'darwin)
     (set-frame-parameter nil 'fullscreen nil)
     (set-frame-parameter nil 'fullscreen 'maximized)))
+;; hack for helm-anything
