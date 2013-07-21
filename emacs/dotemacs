@@ -162,6 +162,7 @@
         '(face trailing tabs lines lines-tail empty
                space-after-tab space-before-tab))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;;; http://batsov.com/articles/2012/12/09/emacs-24-dot-3-introduces-native-osx-full-screen-support/
 (if (functionp 'ns-toggle-fullscreen)
@@ -170,4 +171,3 @@
   (when (eq system-type 'darwin)
     (set-frame-parameter nil 'fullscreen nil)
     (set-frame-parameter nil 'fullscreen 'maximized)))
-;; hack for helm-anything
