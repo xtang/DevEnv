@@ -11,6 +11,12 @@
 (require 'go-autocomplete)
 (require 'handlebars-mode)
 (require 'grep-o-matic)
+(require 'go-mode-load)
+(require 'cljdoc)
+(require 'google-translate)
+(require 'ack-and-a-half)
+(require 'buffer-move)
+(require 'whitespace)
 
 ;; ac
 (ac-config-default)
@@ -72,8 +78,6 @@
                                  (google-make-newline-indent)
                                  (auto-complete-mode)
                                  (setq c-basic-offset 4))))
-
-(require 'cljdoc)
 (add-hook 'clojure-mode-hook '(lambda () (progn
                                       (paredit-mode))))
 
@@ -127,7 +131,7 @@
 
 ;; google translate
 
-(require 'google-translate)
+
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "zh-CN")
 (global-set-key (kbd "C-c g") 'google-translate-at-point)
@@ -138,7 +142,7 @@
 
 ;; ack
 (setq exec-path (append exec-path '("/usr/local/bin")))
-(require 'ack-and-a-half)
+
 ;; Create shorter aliases
 (defalias 'ack 'ack-and-a-half)
 (defalias 'ack-same 'ack-and-a-half-same)
@@ -152,7 +156,7 @@
  ;; If there is more than one, they won't work right.
  '(hl-line ((t (:inherit highlight :background "gray18")))))
 
-(require 'buffer-move)
+
 (global-set-key (kbd "C-x p")   'buf-move-left)
 (global-set-key (kbd "C-x n")  'buf-move-right)
 
@@ -163,7 +167,7 @@
 (setq helm-split-window-default-side "right")
 
 ;; deal with white spaces
-(require 'whitespace)
+
 (setq whitespace-style
         '(face trailing tabs lines lines-tail empty
                space-after-tab space-before-tab))
@@ -174,7 +178,9 @@
 (setq exec-path (append exec-path '("/Users/tangxm/Workspace/go/bin")))
 (add-hook 'go-mode-hook '(lambda () (progn
                               (setq whitespace-mode t)
-                              (go-eldoc-setup))))
+                              (go-eldoc-setup)
+                              (local-set-key (kbd "M-.") 'godef-jump)
+                              (local-set-key (kbd "M-,") 'pop-tag-mark))))
 ;; from https://github.com/syohex/emacs-go-eldoc
 (add-hook 'before-save-hook 'gofmt-before-save)
 
