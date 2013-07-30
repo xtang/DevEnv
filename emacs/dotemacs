@@ -54,22 +54,28 @@
                       (if (>= (x-display-pixel-width) 2560) 142 130)))
 
 ; prog-mode
-(add-hook 'c++-mode-hook 'esk-prog-mode-hook)
-(add-hook 'c++-mode-hook '(lambda () (setq show-trailing-whitespace t)))
-(add-hook 'c++-mode-hook '(lambda () (setq c-basic-offset 4)))
-(add-hook 'c-mode-hook 'esk-prog-mode-hook)
-(add-hook 'c-mode-hook '(lambda () (setq c-basic-offset 4)))
-(add-hook 'c-mode-hook '(lambda () (setq show-trailing-whitespace t)))
-(add-hook 'java-mode-hook 'esk-prog-mode-hook)
-(add-hook 'java-mode-hook '(lambda () (setq show-trailing-whitespace t)))
-(add-hook 'java-mode-hook '(lambda () (setq c-basic-offset 4)))
+
+(add-hook 'c++-mode-hook '(lambda () (progn
+                                  (esk-prog-mode-hook)
+                                  (setq show-trailing-whitespace t)
+                                  (setq c-basic-offset 4))))
+(add-hook 'c-mode-hook '(lambda () (progn
+                                (esk-prog-mode-hook)
+                                (setq c-basic-offset 4)
+                                (setq show-trailing-whitespace t))))
+(add-hook 'java-mode-hook '(lambda () (progn
+                                   (esk-prog-mode-hook)
+                                   (setq show-trailing-whitespace t)
+                                   (setq c-basic-offset 4))))
 (add-hook 'go-mode-hook '(lambda () (progn
                                  (esk-prog-mode-hook)
                                  (google-make-newline-indent)
                                  (auto-complete-mode)
                                  (setq c-basic-offset 4))))
-(add-hook 'clojure-mode-hook 'paredit-mode)
 
+(require 'cljdoc)
+(add-hook 'clojure-mode-hook '(lambda () (progn
+                                      (paredit-mode))))
 
 ; (add-hook 'c-mode-common-hook 'google-set-c-style)
 ; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
@@ -131,6 +137,7 @@
 ;(yas-global-mode 1)
 
 ;; ack
+(setq exec-path (append exec-path '("/usr/local/bin")))
 (require 'ack-and-a-half)
 ;; Create shorter aliases
 (defalias 'ack 'ack-and-a-half)
@@ -157,12 +164,21 @@
 
 ;; deal with white spaces
 (require 'whitespace)
-(global-whitespace-mode)
 (setq whitespace-style
         '(face trailing tabs lines lines-tail empty
                space-after-tab space-before-tab))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'prog-mode-hook 'whitespace-mode)
+;(add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; go-mode
+(setq exec-path (append exec-path '("/Users/tangxm/Workspace/go/bin")))
+(add-hook 'go-mode-hook '(lambda () (progn
+                              (setq whitespace-mode t)
+                              (go-eldoc-setup))))
+;; from https://github.com/syohex/emacs-go-eldoc
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+
 
 ;;; http://batsov.com/articles/2012/12/09/emacs-24-dot-3-introduces-native-osx-full-screen-support/
 (if (functionp 'ns-toggle-fullscreen)
