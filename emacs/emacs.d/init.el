@@ -19,11 +19,13 @@
 (require 'xtang-defuns)
 (require 'xtang-elpa)
 (require 'xtang-exec-path)
+(require 'xtang-sessions)
 (require 'xtang-theme)
 (require 'xtang-misc)
 (require 'xtang-ac)
 (require 'xtang-helm)
 (require 'xtang-magit)
+(require 'xtang-uniquify)
 (require 'xtang-editing)
 
 (message "init completed in %.2fms"
