@@ -3,7 +3,7 @@
 
 ;;; const
 (defconst *is-a-mac* (eq system-type 'darwin))
-(defconst *is-retina* (>= (x-display-pixel-width) 2560))
+(defconst *is-retina* (and window-system (>= (x-display-pixel-width) 2560)))
 
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
     (when (fboundp mode) (funcall mode -1)))
