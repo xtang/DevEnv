@@ -78,6 +78,11 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+;; recentf
+(recentf-mode 1)
+(setq recentf-max-saved-items 1000
+      recentf-exclude '("/tmp/" "/ssh:"))
+
 ;; keybinding
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-n") 'mark-sexp)
