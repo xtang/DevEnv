@@ -16,10 +16,13 @@
 ;always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(require 'xtang-defuns)
 (require 'xtang-elpa)
 (require 'xtang-theme)
 (require 'xtang-misc)
 (require 'xtang-ac)
+(require 'xtang-helm)
+(require 'xtang-magit)
 (require 'xtang-editing)
 
 (message "init completed in %.2fms"

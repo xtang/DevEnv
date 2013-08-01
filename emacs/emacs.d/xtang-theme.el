@@ -1,5 +1,17 @@
 (require-package 'zenburn-theme)
+
+;; patch
 (load-theme 'zenburn t)
+(zenburn-with-color-variables
+  (custom-theme-set-faces
+   'zenburn
+   `(highlight ((t (:background ,zenburn-bg+3))))
+   `(region ((,class (:background ,zenburn-bg+3))
+             (t :inverse-video t)))
+   `(hl-line-face ((,class (:background ,zenburn-bg+3))
+                   (t :weight bold)))))
+
+;; colour change
 
 ;; change the font and height
 (when (and *is-a-mac*

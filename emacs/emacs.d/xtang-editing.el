@@ -6,7 +6,6 @@
  show-trailing-whitespace t
  make-backup-files nil)
 
-
 (transient-mark-mode t)
 (cua-selection-mode t)
 
@@ -18,32 +17,6 @@
 (dolist (hook '(term-mode-hook comint-mode-hook compilation-mode-hook))
   (add-hook hook
             (lambda () (setq show-trailing-whitespace nil))))
-
-;; copied from start-kit-misc
-(ido-mode t)
-(setq ido-enable-prefix nil
-      ido-enable-flex-matching t
-      ido-auto-merge-work-directories-length nil
-      ido-create-new-buffer 'always
-      ido-use-filename-at-point 'guess
-      ido-use-virtual-buffers t
-      ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10)
-(require 'ffap)
-(defvar ffap-c-commment-regexp "^/\\*+"
-  "Matches an opening C-style comment, like \"/***\".")
-
-(defadvice ffap-file-at-point (after avoid-c-comments activate)
-  "Don't return paths like \"/******\" unless they actually exist.
-
-This fixes the bug where ido would try to suggest a C-style
-comment as a filename."
-  (ignore-errors
-    (when (and ad-return-value
-               (string-match-p ffap-c-commment-regexp
-                               ad-return-value)
-               (not (ffap-file-exists-string ad-return-value)))
-      (setq ad-return-value nil))))
 
 (defun esk-local-column-number-mode ()
   (make-local-variable 'column-number-mode)
@@ -80,9 +53,14 @@ comment as a filename."
 (add-hook 'prog-mode-hook 'esk-pretty-lambdas)
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
 
+
 ;; idle-highlight-mode
 (require-package 'idle-highlight-mode)
-(idle-highlight-mode)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
+
+;; paredit
+(require-package 'paredit)
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 
 ;; Show matching parens
 (require-package 'mic-paren)
@@ -97,5 +75,8 @@ comment as a filename."
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-n") 'mark-sexp)
 (global-set-key (kbd "C-x C-n") (lambda () (interactive) (other-window 1)))
+
+;; language specific require
+(require 'xtang-clj)
 
 (provide 'xtang-editing)
