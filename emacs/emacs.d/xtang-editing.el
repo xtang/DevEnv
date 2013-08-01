@@ -13,6 +13,10 @@
       whitespace-style '(face trailing lines-tail lines empty space-after-tab space-before-tab tabs)
       whitespace-line-column 100)
 
+(global-auto-revert-mode)
+(setq global-auto-revert-non-file-buffers t
+      auto-revert-verbose nil)
+
 ;; copied from https://github.com/purcell/emacs.d/blob/master/init-editing-utils.el
 (dolist (hook '(term-mode-hook comint-mode-hook compilation-mode-hook))
   (add-hook hook
