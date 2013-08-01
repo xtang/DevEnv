@@ -10,8 +10,8 @@
 (cua-selection-mode t)
 
 (setq sentence-end-double-space nil
-      whitespace-style '(face trailing lines-tail tabs)
-      whitespace-line-column 120)
+      whitespace-style '(face trailing lines-tail lines empty space-after-tab space-before-tab tabs)
+      whitespace-line-column 100)
 
 ;; copied from https://github.com/purcell/emacs.d/blob/master/init-editing-utils.el
 (dolist (hook '(term-mode-hook comint-mode-hook compilation-mode-hook))
@@ -52,7 +52,7 @@
 (add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
 (add-hook 'prog-mode-hook 'esk-pretty-lambdas)
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
-
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; idle-highlight-mode
 (require-package 'idle-highlight-mode)
