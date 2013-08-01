@@ -18,6 +18,7 @@
 
 (require 'xtang-defuns)
 (require 'xtang-elpa)
+(require 'xtang-exec-path)
 (require 'xtang-theme)
 (require 'xtang-misc)
 (require 'xtang-ac)

@@ -71,6 +71,13 @@
 (global-set-key (kbd "C-;") 'ace-jump-mode)
 (global-set-key (kbd "C-:") 'ace-jump-word-mode)
 
+;; ack
+(require-package 'ack-and-a-half)
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
 ;; keybinding
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-n") 'mark-sexp)

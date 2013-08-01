@@ -8,8 +8,10 @@
    `(highlight ((t (:background ,zenburn-bg+3))))
    `(region ((,class (:background ,zenburn-bg+3))
              (t :inverse-video t)))
-   `(hl-line-face ((,class (:background ,zenburn-bg+3))
-                   (t :weight bold)))))
+   `(hl-line-face ((,class (:background ,"gray18"))
+                   (t :weight bold)))
+   `(hl-line ((,class (:background ,"gray18"))
+	      (t :weight bold)))))
 
 ;; colour change
 
