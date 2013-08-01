@@ -95,5 +95,6 @@
 
 ;; language specific require
 (require 'xtang-clj)
+(require 'xtang-go)
 
 (provide 'xtang-editing)
