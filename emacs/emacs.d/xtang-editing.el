@@ -12,6 +12,7 @@
 (cua-selection-mode t)
 
 (setq sentence-end-double-space nil
+      save-place-file (concat user-emacs-directory ".places")
       whitespace-style '(face trailing lines-tail lines tabs)
       whitespace-line-column 100)
 
@@ -96,5 +97,6 @@
 ;; language specific require
 (require 'xtang-clj)
 (require 'xtang-go)
+(require 'xtang-lisp)
 
 (provide 'xtang-editing)

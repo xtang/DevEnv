@@ -1,3 +1,8 @@
+(defun recompile-init ()
+  "Byte-compile all your dotfiles again."
+  (interactive)
+  (byte-recompile-directory user-emacs-directory 0))
+
 (defun revert-all-buffers ()
   "Refreshes all open buffers from their respective files."
   (interactive)
