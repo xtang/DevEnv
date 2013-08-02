@@ -99,5 +99,6 @@
 (require 'xtang-go)
 (require 'xtang-lisp)
 (require 'xtang-hbs)
+(require 'xtang-js)
 
 (provide 'xtang-editing)
