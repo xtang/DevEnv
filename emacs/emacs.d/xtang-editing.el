@@ -6,6 +6,7 @@
  show-trailing-whitespace t
  tab-width 4
  indent-tabs-mode nil
+ line-spacing 0.2
  make-backup-files nil)
 
 (transient-mark-mode t)

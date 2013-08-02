@@ -13,7 +13,7 @@
    `(hl-line ((,class (:background ,"gray18"))
               (t :weight bold)))))
 
-;; colour change
+(fringe-mode (cons 1 1))
 
 ;; change the font and height
 (when (and *is-a-mac*
