@@ -2,6 +2,7 @@
 (require-package 'go-autocomplete)
 
 (require 'go-mode-load)
+(require 'go-autocomplete)
 
 (add-hook 'go-mode-hook '(lambda () (progn
                                  (whitespace-mode -1)
