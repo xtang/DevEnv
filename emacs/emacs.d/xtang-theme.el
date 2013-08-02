@@ -11,21 +11,21 @@
    `(hl-line-face ((,class (:background ,"gray18"))
                    (t :weight bold)))
    `(hl-line ((,class (:background ,"gray18"))
-	      (t :weight bold)))))
+              (t :weight bold)))))
 
 ;; colour change
 
 ;; change the font and height
 (when (and *is-a-mac*
-	   window-system)
+           window-system)
   (set-face-attribute 'default nil :font "Monaco" :height
                       (if *is-retina* 142 125)))
 
 ;; fullscreen
 (if (functionp 'ns-toggle-fullscreen)
     (ns-toggle-fullscreen)
-    (when *is-a-mac*
-      (set-frame-parameter nil 'fullscreen nil)
-      (set-frame-parameter nil 'fullscreen 'maximized)))
+  (when *is-a-mac*
+    (set-frame-parameter nil 'fullscreen nil)
+    (set-frame-parameter nil 'fullscreen 'maximized)))
 
 (provide 'xtang-theme)

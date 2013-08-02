@@ -98,5 +98,6 @@
 (require 'xtang-clj)
 (require 'xtang-go)
 (require 'xtang-lisp)
+(require 'xtang-hbs)
 
 (provide 'xtang-editing)

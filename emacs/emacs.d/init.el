@@ -13,6 +13,9 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; put customize file to special file
+(setq custom-file (concat user-emacs-directory "custom.el"))
+
 ;always ask for y/n keypress instead of typing out 'yes' or 'no'
 (defalias 'yes-or-no-p 'y-or-n-p)
 
