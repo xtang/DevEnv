@@ -6,8 +6,8 @@
 
 (defun go-run ()
   (interactive)
-  (let ((cmd (concat "go run " (buffer-name))))
-    (message "running...")
+  (let ((cmd (concat "go run " (buffer-file-name))))
+    (message "running...:%s" cmd)
     (shell-command cmd "*run-go-file-output*")))
 
 (add-hook 'go-mode-hook '(lambda () (progn
