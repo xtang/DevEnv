@@ -1,4 +1,5 @@
 (require-package 'clojure-mode)
+(require-package 'clojure-test-mode)
 (require-package 'nrepl)
 (require-package 'ac-nrepl)
 (require-package 'rainbow-delimiters)
