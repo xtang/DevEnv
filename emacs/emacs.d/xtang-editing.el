@@ -102,5 +102,6 @@
 (require 'xtang-hbs)
 (require 'xtang-js)
 (require 'xtang-org)
+(require 'xtang-cpp)
 
 (provide 'xtang-editing)
