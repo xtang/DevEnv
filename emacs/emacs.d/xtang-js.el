@@ -6,6 +6,8 @@
               js2-strict-var-hides-function-arg-warning nil
               js2-strict-missing-semi-warning nil
               js2-strict-trailing-comma-warning nil
+              js2-basic-offset 2
+              js-indent-level 2
               js2-strict-cond-assign-warning nil
               js2-strict-var-redeclaration-warning nil
               js2-global-externs
