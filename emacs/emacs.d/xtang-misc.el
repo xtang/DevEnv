@@ -25,6 +25,6 @@
                                       (or download-name
                                           (car (last (split-string url "/" t)))))))
           (write-file localfile-name)
-          (find-file localfile-name))))))
+          (find-file-other-window localfile-name))))))
 
 (provide 'xtang-misc)
