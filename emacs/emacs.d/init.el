@@ -30,6 +30,7 @@
 (require 'xtang-magit)
 (require 'xtang-uniquify)
 (require 'xtang-editing)
+(require 'xtang-social)
 
 (message "init completed in %.2fms"
          (sanityinc/time-subtract-millis (current-time) before-init-time))
