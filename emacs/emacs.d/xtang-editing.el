@@ -103,5 +103,7 @@
 (require 'xtang-js)
 (require 'xtang-org)
 (require 'xtang-cpp)
+(require 'xtang-markdown)
+(require 'xtang-sass)
 
 (provide 'xtang-editing)
