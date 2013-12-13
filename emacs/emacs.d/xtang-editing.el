@@ -105,5 +105,6 @@
 (require 'xtang-cpp)
 (require 'xtang-markdown)
 (require 'xtang-sass)
+(require 'xtang-coffee)
 
 (provide 'xtang-editing)
