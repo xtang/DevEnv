@@ -1,2 +1,5 @@
 (require-package 'coffee-mode)
+(add-hook 'coffee-mode-hook '(lambda ()
+                               (set-variable 'tab-width 2 t)
+                               (custom-set-variables '(coffee-tab-width 2))))
 (provide 'xtang-coffee)

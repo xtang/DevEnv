@@ -1,4 +1,5 @@
 ;; default setting
+
 (setq-default
  x-select-enable-clipboard t
  delete-selection-mode t
@@ -106,5 +107,7 @@
 (require 'xtang-markdown)
 (require 'xtang-sass)
 (require 'xtang-coffee)
+(require 'xtang-yasnippet)
+(require 'xtang-scss)
 
 (provide 'xtang-editing)
