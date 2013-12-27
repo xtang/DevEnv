@@ -3,6 +3,7 @@
 #!/usr/bin/env bash
 # Save and restore the state of tmux sessions and windows.
 # TODO: persist and restore the state & position of panes.
+# REQUIRE: tmux version should be >= 1.8
 set -e
 
 dump() {
