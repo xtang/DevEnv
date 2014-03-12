@@ -32,4 +32,4 @@ source $ZSH/oh-my-zsh.sh
 bindkey -e
 
 source ~/.zsh_alias
-source /Users/tangxiaomin/Workspace/phabricator/arcanist/resources/shell/bash-completion
+#source /Users/tangxiaomin/Workspace/phabricator/arcanist/resources/shell/bash-completion

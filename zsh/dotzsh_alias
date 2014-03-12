@@ -1,5 +1,5 @@
-alias emacs='/usr/local/Cellar/emacs/24.1/bin/emacs' 
-alias gfw='ssh -qTfnN -D 7070 proxyuser@gfwproxy.mei.fm'
+#alias emacs='/usr/local/Cellar/emacs/24.1/bin/emacs' 
+#alias gfw='ssh -qTfnN -D 7070 proxyuser@gfwproxy.mei.fm'
 
 # git alias
 alias ga='git add'
