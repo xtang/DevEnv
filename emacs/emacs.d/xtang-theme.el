@@ -20,6 +20,9 @@
            window-system)
   (set-face-attribute 'default nil :font "Monaco" :height
                       (if *is-retina* 142 125)))
+
+(set-fontset-font t 'han (font-spec :name "STHeiti"))
+
 ;; fullscreen
 (if (functionp 'ns-toggle-fullscreen)
     (ns-toggle-fullscreen)
