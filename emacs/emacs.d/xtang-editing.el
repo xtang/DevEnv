@@ -104,6 +104,11 @@
 (global-set-key (kbd "M-n") 'mark-sexp)
 (global-set-key (kbd "C-x C-n") (lambda () (interactive) (other-window 1)))
 
+;; buffer-move
+(require-package 'buffer-move)
+(global-set-key (kbd "C-c C-n") (lambda () (interactive) (buf-move-right)))
+(global-set-key (kbd "C-c C-p") (lambda () (interactive) (buf-move-left)))
+
 ;; language specific require
 (require 'xtang-clj)
 (require 'xtang-go)
