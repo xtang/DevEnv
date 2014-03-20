@@ -109,9 +109,13 @@
 (global-set-key (kbd "C-c C-n") (lambda () (interactive) (buf-move-right)))
 (global-set-key (kbd "C-c C-p") (lambda () (interactive) (buf-move-left)))
 
+;; string-inflection
+(require-package 'string-inflection)
+(global-set-key (kbd "C-c C-u") 'string-inflection-cycle) ; Vz Editor-like key binding
+
 ;; language specific require
 (require 'xtang-clj)
-(require 'xtang-go)
+;(require 'xtang-go)
 (require 'xtang-lisp)
 (require 'xtang-hbs)
 (require 'xtang-js)
