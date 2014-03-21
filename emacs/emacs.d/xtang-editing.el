@@ -126,5 +126,6 @@
 (require 'xtang-coffee)
 (require 'xtang-yasnippet)
 (require 'xtang-scss)
+(require 'xtang-gist)
 
 (provide 'xtang-editing)
