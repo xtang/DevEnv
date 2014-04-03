@@ -1,6 +1,8 @@
 (require-package 'zenburn-theme)
 
 ;; patch
+
+;; Use less bolding
 (load-theme 'solarized-dark t)
 ;; (zenburn-with-color-variables
 ;;   (custom-theme-set-faces
