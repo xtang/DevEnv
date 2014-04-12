@@ -127,5 +127,6 @@
 (require 'xtang-yasnippet)
 (require 'xtang-scss)
 (require 'xtang-gist)
+(require 'xtang-html)
 
 (provide 'xtang-editing)
