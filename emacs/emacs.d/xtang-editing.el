@@ -59,7 +59,7 @@
 
 (defun esk-add-watchwords ()
   (font-lock-add-keywords
-   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+   nil '(("\\<\\(FIX\\(ME\\)?\\|TODO\\|HACK\\|REFACTOR\\|NOCOMMIT\\|DEPRECATED\\)"
           1 font-lock-warning-face t))))
 
 (add-hook 'prog-mode-hook 'esk-local-column-number-mode)
@@ -128,5 +128,6 @@
 (require 'xtang-scss)
 (require 'xtang-gist)
 (require 'xtang-html)
+(require 'xtang-erlang)
 
 (provide 'xtang-editing)
