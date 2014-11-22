@@ -123,6 +123,7 @@
 (require 'xtang-cpp)
 (require 'xtang-markdown)
 (require 'xtang-sass)
+(require 'xtang-less-css)
 (require 'xtang-coffee)
 (require 'xtang-yasnippet)
 (require 'xtang-scss)
