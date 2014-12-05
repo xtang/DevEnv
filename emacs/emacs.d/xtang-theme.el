@@ -1,9 +1,10 @@
 (require-package 'zenburn-theme)
-
+(require-package 'solarized-theme)
 ;; patch
 
 ;; Use less bolding
 (load-theme 'solarized-dark t)
+; (load-theme 'zenburn t)
 ;; (zenburn-with-color-variables
 ;;   (custom-theme-set-faces
 ;;    'zenburn
