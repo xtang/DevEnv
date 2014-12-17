@@ -1,13 +1,16 @@
 (require-package 'clojure-mode)
-(require-package 'clojure-test-mode)
+;; (require-package 'clojure-test-mode)
 (require-package 'cider)
 (require-package 'ac-cider-compliment)
 (require-package 'rainbow-delimiters)
+(require-package 'clojure-snippets)
+(require-package 'clojure-cheatsheet)
+;; (setq nrepl-log-messages t)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
-(setq cider-popup-stacktraces nil)
+;; (setq cider-popup-stacktraces nil)
 
 ;; (after-load 'cider
 ;;   (add-hook 'cider-mode-hook 'ac-cider-setup)

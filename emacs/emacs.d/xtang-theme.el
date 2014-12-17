@@ -3,18 +3,18 @@
 ;; patch
 
 ;; Use less bolding
-(load-theme 'solarized-dark t)
-; (load-theme 'zenburn t)
-;; (zenburn-with-color-variables
-;;   (custom-theme-set-faces
-;;    'zenburn
-;;    `(highlight ((t (:background ,zenburn-bg+3))))
-;;    `(region ((,class (:background ,zenburn-bg+3))
-;;              (t :inverse-video t)))
-;;    `(hl-line-face ((,class (:background ,"gray18"))
-;;                    (t :weight bold)))
-;;    `(hl-line ((,class (:background ,"gray18"))
-;;               (t :weight bold)))))
+;; (load-theme 'solarized-dark t)
+(load-theme 'zenburn t)
+(zenburn-with-color-variables
+  (custom-theme-set-faces
+   'zenburn
+   `(highlight ((t (:background ,zenburn-bg+3))))
+   `(region ((,class (:background ,zenburn-bg+3))
+             (t :inverse-video t)))
+   `(hl-line-face ((,class (:background ,"gray18"))
+                   (t :weight bold)))
+   `(hl-line ((,class (:background ,"gray18"))
+              (t :weight bold)))))
 
 (fringe-mode (cons 1 1))
 
