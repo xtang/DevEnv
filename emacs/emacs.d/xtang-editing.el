@@ -113,6 +113,10 @@
 (require-package 'string-inflection)
 (global-set-key (kbd "C-c C-u") 'string-inflection-cycle) ; Vz Editor-like key binding
 
+;; move-text
+(require-package 'move-text)
+(move-text-default-bindings)
+
 ;; language specific require
 (require 'xtang-clj)
 ;(require 'xtang-go)
