@@ -103,6 +103,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "M-n") 'mark-sexp)
 (global-set-key (kbd "C-x C-n") (lambda () (interactive) (other-window 1)))
+(global-set-key (kbd "C-x C-p") (lambda () (interactive) (other-window -1)))
 
 ;; buffer-move
 (require-package 'buffer-move)
@@ -116,6 +117,8 @@
 ;; move-text
 (require-package 'move-text)
 (move-text-default-bindings)
+(global-set-key (kbd "M-<up>") 'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
 
 ;; language specific require
 (require 'xtang-clj)
