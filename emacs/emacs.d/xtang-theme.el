@@ -4,17 +4,18 @@
 
 ;; Use less bolding
 ;; (load-theme 'solarized-dark t)
-(load-theme 'zenburn t)
-(zenburn-with-color-variables
-  (custom-theme-set-faces
-   'zenburn
-   `(highlight ((t (:background ,zenburn-bg+3))))
-   `(region ((,class (:background ,zenburn-bg+3))
-             (t :inverse-video t)))
-   `(hl-line-face ((,class (:background ,"gray18"))
-                   (t :weight bold)))
-   `(hl-line ((,class (:background ,"gray18"))
-              (t :weight bold)))))
+;; (load-theme 'zenburn t)
+(load-theme 'monokai t)
+;; (zenburn-with-color-variables
+;;   (custom-theme-set-faces
+;;    'zenburn
+;;    `(highlight ((t (:background ,zenburn-bg+3))))
+;;    `(region ((,class (:background ,zenburn-bg+3))
+;;              (t :inverse-video t)))
+;;    `(hl-line-face ((,class (:background ,"gray18"))
+;;                    (t :weight bold)))
+;;    `(hl-line ((,class (:background ,"gray18"))
+;;               (t :weight bold)))))
 
 (fringe-mode (cons 1 1))
 
@@ -22,7 +23,7 @@
 (when (and *is-a-mac*
            window-system)
   (set-face-attribute 'default nil :font "Source Code Pro" :height
-                      (if *is-retina* 152 135)))
+                      (if *is-retina* 146 135)))
 
 (set-fontset-font t 'han (font-spec :name "STHeiti"))
 

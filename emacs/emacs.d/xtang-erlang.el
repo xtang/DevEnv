@@ -7,6 +7,7 @@
 
 (when (and (package-installed-p 'erlang)
            (package-installed-p 'edts))
-  (require 'erlang-start)
-  (require 'edts-start))
+  ;(require 'erlang-start)
+  ;(require 'edts-start)
+  )
 (provide 'xtang-erlang)

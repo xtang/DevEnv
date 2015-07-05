@@ -1,5 +1,5 @@
 # copy from
-# https://github.com/mislav/dotfiles/blob/9a9de5ccd0a89480936acaf5333cf7b288e3fa82/bin/tmux-session
+# https://github.com/mislav/dotfiles/blob/10a9de5ccd0a89480936acaf5333cf7b288e3fa82/bin/tmux-session
 #!/usr/bin/env bash
 # Save and restore the state of tmux sessions and windows.
 # TODO: persist and restore the state & position of panes.
