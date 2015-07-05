@@ -121,7 +121,7 @@
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
 ;; multiple-cursor
-(require 'multiple-cursors)
+(require-package 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -150,5 +150,6 @@
 (require 'xtang-gist)
 (require 'xtang-html)
 (require 'xtang-erlang)
+(require 'xtang-docker)
 
 (provide 'xtang-editing)
