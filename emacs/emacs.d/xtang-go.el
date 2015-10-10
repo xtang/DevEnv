@@ -1,7 +1,7 @@
 (require-package 'go-mode)
 (require-package 'go-autocomplete)
 
-(require 'go-mode-load)
+(require 'go-mode-autoloads)
 (require 'go-autocomplete)
 
 (defun go-run ()

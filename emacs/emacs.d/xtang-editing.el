@@ -135,7 +135,7 @@
 
 ;; language specific require
 (require 'xtang-clj)
-;(require 'xtang-go)
+(require 'xtang-go)
 (require 'xtang-lisp)
 (require 'xtang-hbs)
 (require 'xtang-js)
