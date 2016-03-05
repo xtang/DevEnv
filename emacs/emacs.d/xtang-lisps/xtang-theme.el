@@ -22,8 +22,8 @@
 ;; change the font and height
 (when (and *is-a-mac*
            window-system)
-  (set-face-attribute 'default nil :font "Source Code Pro" :height
-                      (if *is-retina* 146 135)))
+  (set-face-attribute 'default nil :font "Monaco" :height
+                      (if *is-retina* 146 136)))
 
 (set-fontset-font t 'han (font-spec :name "STHeiti"))
 

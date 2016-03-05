@@ -1,7 +1,6 @@
 ;; ELPA
-;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
 (require 'package)
-(dolist (source '(("melpa" . "http://melpa.milkbox.net/packages/")
+(dolist (source '(("melpa" . "https://melpa.org/packages/")
                   ("marmalade" . "http://marmalade-repo.org/packages/")
                   ("elpa" . "http://tromey.com/elpa/")))
   (add-to-list 'package-archives source t))
