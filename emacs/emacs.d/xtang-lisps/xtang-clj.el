@@ -1,7 +1,7 @@
 (require-package 'clojure-mode)
 ;; (require-package 'clojure-test-mode)
 (require-package 'cider)
-(require-package 'ac-cider-compliment)
+;(require-package 'ac-cider-compliment)
 (require-package 'rainbow-delimiters)
 (require-package 'clojure-snippets)
 (require-package 'clojure-cheatsheet)

@@ -87,12 +87,8 @@
 (global-set-key (kbd "C-;") 'ace-jump-mode)
 (global-set-key (kbd "C-:") 'ace-jump-word-mode)
 
-;; ack
-(require-package 'ack-and-a-half)
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+;; ag
+(require-package 'helm-ag)
 
 ;; recentf
 (recentf-mode 1)
@@ -149,7 +145,7 @@
 (require 'xtang-scss)
 (require 'xtang-gist)
 (require 'xtang-html)
-(require 'xtang-erlang)
+;(require 'xtang-erlang)
 (require 'xtang-docker)
 
 (provide 'xtang-editing)
