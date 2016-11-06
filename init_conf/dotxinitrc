@@ -1,7 +1,7 @@
-xmodmap -e 'keycode 66 = Control_L'
-xmodmap -e 'clear Lock'
-xmodmap -e 'add Control = Control_L'
-xrdb -load ~/.Xresources
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+
+xrdb -merge ~/.Xresources
+xrandr --output DP3-8 --mode 3840x2160 --rate 60
 exec /usr/local/bin/dwm
-
-

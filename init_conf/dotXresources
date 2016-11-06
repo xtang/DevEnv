@@ -1,7 +1,86 @@
-! Xft.autohint: 0
+Xft.dpi: 185
+Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
-Xft.hintstyle: hintslight 
-! hintfull, hintmedium, hintslight and hintnone
+Xft.hintstyle:  hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
+
+!-- xterm configuration
+!
+!! Set the console to 256 colors
+xterm*termName: xterm-256color
+!
+!! Use UTF-8
+!xterm*locale: true
+!
+!! Fix the Alt key
+ xterm*metaSendsEscape: true
+!
+!! Scroll options
+xterm*saveLines:        8192
+xterm*jumpScroll:       true
+xterm*multiScroll:      false
+xterm*fastScroll:       false
+xterm*scrollTtyOutput:  false
+xterm*scrollKey:        true
+
+! Scrollbar options
+xterm*scrollBar: false
+xterm*rightScrollBar: true
+xterm*scrollBarBorder: 0
+!
+! Size of the window
+!xterm*VT100.geometry: 80x32
+
+! A double click selection the whole URLs
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Enable the bell urgency
+xterm*bellIsUrgent: false
+
+! Remove black border
+xterm*borderWidth: 0
+
+! Allow the cursor to blink
+xterm*cursorBlink: false
+
+! Colorscheme
+xterm*background: #1B1B1B
+xterm*foreground: #AAAAAA
+! black
+xterm*color0  : #2E3436
+xterm*color8  : #555753
+! red
+xterm*color1  : #CC0000
+xterm*color9  : #EF2929
+! green
+xterm*color2  : #4E9A06
+xterm*color10 : #8AE234
+! yellow
+xterm*color3  : #C4A000
+xterm*color11 : #FCE94F
+! blue
+xterm*color4  : #3465A4
+xterm*color12 : #729FCF
+! magenta
+xterm*color5  : #75507B
+xterm*color13 : #AD7FA8
+! cyan
+xterm*color6  : #06989A
+xterm*color14 : #34E2E2
+! white
+xterm*color7  : #D3D7CF
+xterm*color15 : #EEEEEC
+
+! Font
+!xterm*faceName: Source Code Pro for Powerline
+xterm*faceName: Source Code Pro
+!! xterm*faceName: DejaVu Sans Mono for Powerline
+!xterm*faceName: Meslo LG S for Powerline
+!xterm*faceSize: 64
+#xterm*vt100.initialFont: 6
+!XTerm.VT100.font: -*-terminus-*-*-*-48-*-*-*-*-*-*-*
+
+! clipboard
+XTerm*selectToClipboard: true
