@@ -1,0 +1,8 @@
+clear lock
+clear control
+!keysym Control_L = Caps_Lock
+!keysym Caps_Lock = Control_L
+add control = Caps_Lock Control_L Control_R
+!add Lock = Control_L
+!add lock = Control_L
+keycode 66 = Control_L NoSymbol NoSymbol NoSymbol
