@@ -37,4 +37,4 @@
 (require 'xtang-magit)
 (require 'xtang-uniquify)
 (require 'xtang-editing)
-(require 'xtang-social)
+(require 'xtang-tools)
